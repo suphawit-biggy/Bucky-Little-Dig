@@ -29,7 +29,7 @@ public class PlantController {
     }
 
     public void upAge(int no) {
-
+    	
     }
 
     public void upHealth(int no) {
