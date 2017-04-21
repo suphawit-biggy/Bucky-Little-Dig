@@ -4,50 +4,35 @@ package farmapp.model;
  * @author Suphawit Kasemsirisopha [572115056]
  *         on Apr 5, 2017
  */
-public class Plant {
-    private int no;
-    private String name;
-    private int age;
-    private double health;
-    private double water;
+public class PlantTest {
 
-    public int getNo() {
-        return no;
+    public void getNoTest() {
     }
 
-    public void setNo(int no) {
-        this.no = no;
+    public void setNoTest() {
     }
 
-    public String getName() {
-        return name;
+    public void getNameTest() {
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameTest() {
     }
 
-    public int getAge() {
-        return age;
+    public void getAgeTest() {
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setAgeTest() {
     }
 
-    public double getHealth() {
-        return health;
+    public void getHealthTest() {
     }
 
-    public void setHealth(double health) {
-        this.health = health;
+    public void setHealthTest() {
     }
 
-    public double getWater() {
-        return water;
+    public void getWaterTest() {
     }
 
-    public void setWater(double water) {
-        this.water = water;
+    public void setWaterTest() {
     }
 }

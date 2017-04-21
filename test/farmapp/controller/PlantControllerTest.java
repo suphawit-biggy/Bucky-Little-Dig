@@ -7,48 +7,41 @@ import farmapp.view.PlantView;
  * @author Suphawit Kasemsirisopha [572115056]
  *         on Apr 5, 2017
  */
-public class PlantController {
-    Plant plantModel;
-    PlantView plantView;
+public class PlantControllerTest {
 
-    public PlantController(Plant plantModel, PlantView plantView) {
-        this.plantModel = plantModel;
-        this.plantView = plantView;
-    }
-
-    public void addPlant(Plant plant) {
+    public void addPlantTest() {
 
     }
 
-    public void updatePlant(Plant plant) {
+    public void updatePlantTest() {
 
     }
 
-    public void deletePlant(int no) {
+    public void deletePlantTest() {
 
     }
 
-    public void upAge(int no) {
+    public void upAgeTest() {
     	
     }
 
-    public void upHealth(int no) {
+    public void upHealthTest() {
 
     }
 
-    public void downHealth(int no) {
+    public void downHealthTest() {
 
     }
 
-    public void upWaterAll() {
+    public void upWaterAllTest() {
 
     }
 
-    public void upWaterById(int no) {
+    public void upWaterByIdTest() {
 
     }
 
-    public void downWater(int no) {
+    public void downWaterTest() {
 
     }
 }
