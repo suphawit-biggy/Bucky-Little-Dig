@@ -17,7 +17,7 @@ public class GardenImpl {
             this.plants.add(plant);
     }
 
-    public boolean deletePlant(Plant plant) {
+    public boolean removePlant(Plant plant) {
     	return this.plants.remove(plant);
     }
 
