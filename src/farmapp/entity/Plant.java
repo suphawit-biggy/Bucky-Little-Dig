@@ -5,5 +5,10 @@ public interface Plant {
 	public int getAge();
 	public String getState();
 	public int getDaysNextState();
-    public void grow();
+    public void sleep();
+    public void water();
+    public int getWater();
+    public int getWaterMax();
+    public int getHealth();
+    public int getHealthMax();
 }

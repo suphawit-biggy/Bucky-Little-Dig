@@ -32,7 +32,11 @@ public class GardenController {
 
 	public void sleep() {
 		for(Plant plants : this.gardenImpl.getPlants()) {
-			plants.grow();
+			plants.sleep();
 		}
+	}
+	
+	public void water(Plant plant) {
+		plant.water();
 	}
 }

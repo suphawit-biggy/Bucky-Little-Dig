@@ -17,11 +17,12 @@ public class GardenView {
 	}
 
 	public void promptMenu() {
-		System.out.println("\n-- Select an action --");
-		System.out.println("1> View Plants in Garden");
-		System.out.println("2> Plant a plant");
-		System.out.println("3> Sleep One day");
-		System.out.print("Please select an action (1-3) >> ");
+		System.out.println("\nPlease choose an action");
+		System.out.println("(1)\tView Plants");
+		System.out.println("(2)\tPlant seed");
+		System.out.println("(3)\tWater Plant");
+		System.out.println("(4)\tSleep 1 day");
+		System.out.print(": ");
 		int selected = scan.nextInt();
 		switch (selected) {
 			case 1:
@@ -31,6 +32,9 @@ public class GardenView {
 				plantAPlant();
 				break;
 			case 3:
+				waterPlant();
+				break;
+			case 4:
 				sleep();
 				break;
 		}
@@ -38,44 +42,59 @@ public class GardenView {
 
 	public void viewPlants() {
 		List<Plant> plants = this.gardenController.getPlants();
-		System.out.println("\n-- Your Garden Bed --");
+		System.out.println("\nViewing Plants");
 		int index = 0;
 		for(Plant plant : plants) {
-			System.out.println(++index + "> " + plant.getName());
-			System.out.println("\tAge> " + plant.getAge() + " days");
-			System.out.println("\tStatus> " + plant.getState());
-			System.out.println("\tDay until next status: " + plant.getDaysNextState());
+			System.out.println(++index + ": " + plant.getName());
+			System.out.println("\tAge: [seed | seedling | mature | dead] (" + plant.getAge() + "/" + plant.getDaysNextState()*5 + " Days)");
+			System.out.println("\tStatus: " + plant.getState()); 
+			System.out.println("\tHealth: " + plant.getHealth() + "/" + plant.getHealthMax());
+			System.out.println("\tWater: " + plant.getWater() + "/" +plant.getWaterMax());
 		}
 	}
 
 	public void plantAPlant() {
-		Plant plant = new PlantImpl(null, 0);
-		System.out.println("\n-- Pick a plant --");
+		Plant plant = new PlantImpl(null, 0, 0, 0);
+		System.out.println("\nSelect a seed to plant");
 		int selected;
 		do{
-			System.out.println("Please select a seed (1-3) >> ");
-			System.out.println("1.)Magenta Berry");
-			System.out.println("2.)Chilli");
-			System.out.println("3.)Alabaster Mushroom");
+			System.out.println("1: Magenta Berry");
+			System.out.println("2: Chilli");
+			System.out.println("3: Alabaster Mushroom");
+			System.out.print(": ");
 			selected = scan.nextInt();
 			switch (selected) {
 				case 1:
-					plant = new PlantImpl("Magenta Berry", 0);
+					plant = new PlantImpl("Magenta Berry", 3, 9, 5);
 					break;
 				case 2:
-					plant = new PlantImpl("Chilli", 0);
+					plant = new PlantImpl("Chilli", 4, 12, 6);
 					break;
 				case 3:
-					plant = new PlantImpl("Alabaster Mushroom", 0);
+					plant = new PlantImpl("Alabaster Mushroom", 5, 15, 9);
 					break;
 			}
 		} while (selected <= 0 || selected > 3);
 		gardenController.plantAPlant(plant);
 	}
+	
+	public void waterPlant() {
+		List<Plant> plants = this.gardenController.getPlants();
+		System.out.println("Select a plant to water: ");
+		int index = 0;
+		for(Plant plant : plants) {
+			System.out.print(++index + ". " + plant.getName() + ": ");
+			System.out.print("\tWater> ");
+			for(int i=0;i<plant.getWater();i++){
+				System.out.print("<3 ");
+			}
+			System.out.println("(" + plant.getWater() + "/" + plant.getWaterMax() + ")");
+		}
+	}
 
 	public void sleep() {
+		System.out.println("Goodnight.");
 		this.gardenController.sleep();
-		System.out.println("\nA long hardworking day have past !!");
 	}
 
 }
